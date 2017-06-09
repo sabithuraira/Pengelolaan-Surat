@@ -1,0 +1,7 @@
+- Install xampp pada komputer anda
+- Setelah berhasil buka phpmyadmin anda, dengan cara buka browser kemudia masuk ke url "localhost/phpmyadmin"
+- Pada phpmyadmin, pilih menu "Import"
+- Pada halaman import, pilih tombol "browse" kemudia pilih file "apa.sql" yang sudah ada pada attachment
+- kemudia folder "arsip" dan "yii" yang sudah ada pada attachment, pindahkan ke folder C:\xampp\htdocs
+- Jalankan aplikasi anda dengan masuk ke browser dan arahkan ke url "localhost/arsip"
+- Login dengan akun : sabit password : haha
