@@ -3,13 +3,13 @@
 /* @var $model SuratKeluar */
 
 $this->breadcrumbs=array(
-	'Surat Keluars'=>array('index'),
+	'Surat Keluar'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List SuratKeluar', 'url'=>array('index')),
-	array('label'=>'Create SuratKeluar', 'url'=>array('create')),
+	array('label'=>'Daftar Surat Keluar', 'url'=>array('index')),
+	array('label'=>'Tambah Surat Keluar', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,9 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Surat Keluars</h1>
+<h1>Surat Keluar</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -45,14 +40,19 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+		//'id',
 		'nomor_surat',
 		'tanggal_surat_keluar',
 		'perihal_surat',
 		'tujuan_surat',
-		'file_surat',
-		/*
+		//'file_surat',
+		array(
+			'name'	=>'file_surat',
+			'type'	=>'raw',
+			'value'	=>'CHtml::link("Download File",Yii::app()->baseUrl."/file/out/".$data->file_surat)'
+		),
 		'keterangan',
+		/*
 		'created_by',
 		'updated_by',
 		'created_time',

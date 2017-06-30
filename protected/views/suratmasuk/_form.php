@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -21,13 +22,24 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'kode_surat'); ?>
-		<?php echo $form->textField($model,'kode_surat',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->dropDownList($model,'kode_surat', $model->KodeSurat(), array('empty'=>'- Pilih Kode Surat -')); ?>
 		<?php echo $form->error($model,'kode_surat'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tgl_terima'); ?>
-		<?php echo $form->textField($model,'tgl_terima'); ?>
+		<?php //echo $form->textField($model,'tgl_terima'); ?>
+		<?php
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+            	'model'	=>$model,
+                'attribute'	=>'tgl_terima',
+                'options' => array(
+                    'dateFormat'=>'yy-mm-dd',
+                    'changeYear'=>true,
+                    'changeMonth'=>true,
+                ),
+            ));
+		?>
 		<?php echo $form->error($model,'tgl_terima'); ?>
 	</div>
 
@@ -45,7 +57,18 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tgl_surat_masuk'); ?>
-		<?php echo $form->textField($model,'tgl_surat_masuk'); ?>
+		<?php //echo $form->textField($model,'tgl_surat_masuk'); ?>
+		<?php
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+            	'model'	=>$model,
+                'attribute'	=>'tgl_surat_masuk',
+                'options' => array(
+                    'dateFormat'=>'yy-mm-dd',
+                    'changeYear'=>true,
+                    'changeMonth'=>true,
+                ),
+            ));
+		?>
 		<?php echo $form->error($model,'tgl_surat_masuk'); ?>
 	</div>
 
@@ -57,7 +80,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'file_surat'); ?>
-		<?php echo $form->textField($model,'file_surat',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->fileField($model,'file_surat',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'file_surat'); ?>
 	</div>
 
@@ -65,30 +88,6 @@
 		<?php echo $form->labelEx($model,'ket'); ?>
 		<?php echo $form->textArea($model,'ket',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'ket'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'created_by'); ?>
-		<?php echo $form->textField($model,'created_by'); ?>
-		<?php echo $form->error($model,'created_by'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'updated_by'); ?>
-		<?php echo $form->textField($model,'updated_by'); ?>
-		<?php echo $form->error($model,'updated_by'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'created_time'); ?>
-		<?php echo $form->textField($model,'created_time'); ?>
-		<?php echo $form->error($model,'created_time'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'updated_time'); ?>
-		<?php echo $form->textField($model,'updated_time'); ?>
-		<?php echo $form->error($model,'updated_time'); ?>
 	</div>
 
 	<div class="row buttons">

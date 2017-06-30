@@ -3,16 +3,15 @@
 /* @var $model SuratMasuk */
 
 $this->breadcrumbs=array(
-	'Surat Masuks'=>array('index'),
+	'Surat Masuk'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List SuratMasuk', 'url'=>array('index')),
-	array('label'=>'Manage SuratMasuk', 'url'=>array('admin')),
+	array('label'=>'Daftar Surat Masuk', 'url'=>array('index')),
 );
 ?>
 
-<h1>Create SuratMasuk</h1>
+<h1>Tambah Surat Masuk</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

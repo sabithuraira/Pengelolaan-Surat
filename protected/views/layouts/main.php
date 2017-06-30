@@ -30,9 +30,11 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'SK', 'url'=>array('/sk/index')),
-				array('label'=>'Surat Tugas', 'url'=>array('/st/index')),
-				array('label'=>'SPD', 'url'=>array('/spd/index')),
+				//array('label'=>'SK', 'url'=>array('/sk/index')),
+				//array('label'=>'Surat Tugas', 'url'=>array('/st/index')),
+				//array('label'=>'SPD', 'url'=>array('/spd/index')),
+				array('label'=>'Surat Masuk', 'url'=>array('/suratmasuk/index')),
+				array('label'=>'Surat Keluar', 'url'=>array('/suratkeluar/index')),
 				array('label'=>'Admin', 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Change Password', 'url'=>array('/user/cp'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

@@ -3,20 +3,19 @@
 /* @var $model SuratKeluar */
 
 $this->breadcrumbs=array(
-	'Surat Keluars'=>array('index'),
+	'Surat Keluar'=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
-	array('label'=>'List SuratKeluar', 'url'=>array('index')),
-	array('label'=>'Create SuratKeluar', 'url'=>array('create')),
-	array('label'=>'Update SuratKeluar', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete SuratKeluar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage SuratKeluar', 'url'=>array('admin')),
+	array('label'=>'Daftar Surat Keluar', 'url'=>array('index')),
+	array('label'=>'Tambah Surat Keluar', 'url'=>array('create')),
+	array('label'=>'Update Surat Keluar', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Delete Surat Keluar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 );
 ?>
 
-<h1>View SuratKeluar #<?php echo $model->id; ?></h1>
+<h1>Surat Keluar #<?php echo $model->nomor_surat; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -28,8 +27,8 @@ $this->menu=array(
 		'tujuan_surat',
 		'file_surat',
 		'keterangan',
-		'created_by',
-		'updated_by',
+		//'created_by',
+		//'updated_by',
 		'created_time',
 		'updated_time',
 	),

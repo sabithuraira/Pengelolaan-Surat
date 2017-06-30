@@ -3,16 +3,15 @@
 /* @var $model SuratKeluar */
 
 $this->breadcrumbs=array(
-	'Surat Keluars'=>array('index'),
+	'Surat Keluar'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List SuratKeluar', 'url'=>array('index')),
-	array('label'=>'Manage SuratKeluar', 'url'=>array('admin')),
+	array('label'=>'Daftar Surat Keluar', 'url'=>array('index')),
 );
 ?>
 
-<h1>Create SuratKeluar</h1>
+<h1>Tambah Surat Keluar</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

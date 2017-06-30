@@ -70,8 +70,20 @@ class SuratmasukController extends Controller
 		if(isset($_POST['SuratMasuk']))
 		{
 			$model->attributes=$_POST['SuratMasuk'];
-			if($model->save())
+			// if($model->save())
+			// 	$this->redirect(array('view','id'=>$model->id));
+
+
+			$simpanSementara=CUploadedFile::getInstance($model,'file_surat');
+			//$extensions=
+			
+			if($model->save()){
+				$name_file=$model->id.'.'.$simpanSementara->extensionName;
+				$simpanSementara->saveAs(Yii::app()->basePath.'/../file/in/'.$name_file);
+				$model->file_surat=$name_file;
+				$model->save();
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(

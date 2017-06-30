@@ -16,7 +16,7 @@
  * @property string $created_time
  * @property string $updated_time
  */
-class SuratKeluar extends CActiveRecord
+class SuratKeluar extends HelpAr
 {
 	/**
 	 * @return string the associated database table name
@@ -34,8 +34,9 @@ class SuratKeluar extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nomor_surat, tanggal_surat_keluar, perihal_surat, tujuan_surat, file_surat, created_by, updated_by, created_time, updated_time', 'required'),
+			array('nomor_surat, tanggal_surat_keluar, perihal_surat, tujuan_surat, created_by, updated_by, created_time, updated_time', 'required'),
 			array('created_by, updated_by', 'numerical', 'integerOnly'=>true),
+			array('file_surat', 'file', 'types'=>'jpg, gif, png, pdf, doc, docx,xls,xlsx'),
 			array('nomor_surat, file_surat', 'length', 'max'=>255),
 			array('keterangan', 'safe'),
 			// The following rule is used by search().
@@ -70,8 +71,8 @@ class SuratKeluar extends CActiveRecord
 			'keterangan' => 'Keterangan',
 			'created_by' => 'Created By',
 			'updated_by' => 'Updated By',
-			'created_time' => 'Created Time',
-			'updated_time' => 'Updated Time',
+			'created_time' => 'Dibuat pada',
+			'updated_time' => 'Terakhir diperbaharui pada',
 		);
 	}
 

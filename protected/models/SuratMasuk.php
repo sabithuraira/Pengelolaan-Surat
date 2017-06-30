@@ -18,7 +18,7 @@
  * @property string $created_time
  * @property string $updated_time
  */
-class SuratMasuk extends CActiveRecord
+class SuratMasuk extends HelpAr
 {
 	/**
 	 * @return string the associated database table name
@@ -36,8 +36,9 @@ class SuratMasuk extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('kode_surat, tgl_terima, nomor_surat, perihal_surat, tgl_surat_masuk, asal_surat, file_surat, created_by, updated_by, created_time, updated_time', 'required'),
+			array('kode_surat, tgl_terima, nomor_surat, perihal_surat, tgl_surat_masuk, asal_surat, created_by, updated_by, created_time, updated_time', 'required'),
 			array('created_by, updated_by', 'numerical', 'integerOnly'=>true),
+			array('file_surat', 'file', 'types'=>'jpg, gif, png, pdf, doc, docx,xls,xlsx'),
 			array('kode_surat', 'length', 'max'=>20),
 			array('nomor_surat, file_surat', 'length', 'max'=>255),
 			array('ket', 'safe'),
@@ -66,17 +67,17 @@ class SuratMasuk extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'kode_surat' => 'Kode Surat',
-			'tgl_terima' => 'Tgl Terima',
+			'tgl_terima' => 'Tanggal Terima',
 			'nomor_surat' => 'Nomor Surat',
 			'perihal_surat' => 'Perihal Surat',
-			'tgl_surat_masuk' => 'Tgl Surat Masuk',
+			'tgl_surat_masuk' => 'Tanggal Surat Masuk',
 			'asal_surat' => 'Asal Surat',
 			'file_surat' => 'File Surat',
-			'ket' => 'Ket',
+			'ket' => 'Keterangan',
 			'created_by' => 'Created By',
 			'updated_by' => 'Updated By',
-			'created_time' => 'Created Time',
-			'updated_time' => 'Updated Time',
+			'created_time' => 'Dibuat pada',
+			'updated_time' => 'Terakhir diperbaharui pada',
 		);
 	}
 
@@ -115,6 +116,16 @@ class SuratMasuk extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public static function KodeSurat(){
+		return array(
+			'001' => '001 - Pusat',
+			'002' => '002 - Provinsi',
+			'003' => '003 - Kota',
+			'004' => '004 - Kabupaten',
+			'005' => '005 - Vertikal/Umum',
+		);
 	}
 
 	/**

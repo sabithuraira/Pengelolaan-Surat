@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 
 <h1>Surat Masuk</h1>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -45,7 +45,12 @@ $('.search-form form').submit(function(){
 		'nomor_surat',
 		'perihal_surat',
 		'tgl_surat_masuk',
-		'file_surat',
+		//'file_surat',
+		array(
+			'name'	=>'file_surat',
+			'type'	=>'raw',
+			'value'	=>'CHtml::link("Download File",Yii::app()->baseUrl."/file/in/".$data->file_surat)'
+		),
 		/*
 		'asal_surat',
 		'ket',
